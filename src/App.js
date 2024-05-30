@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import HomePage from './HomePage';
+import HomePage from './HomePage'
 import './Login.css'
 import './Welcomepage.css'
 import './SignUpPage.css'
 function LognInPage({ setPageTab, setUserId }) {
   const[username,setUsername]=useState("");
   const[password,setPassword]=useState("");
-  function handleSubmit() {
-    
-      console.log("inside");
+  function handleSubmit(event) {
+    event.preventDefault();
              // 🏷️ START 
              
              const myHeaders = new Headers();
@@ -31,8 +30,7 @@ function LognInPage({ setPageTab, setUserId }) {
                  .then((result) => {
                      if (result.status) {
                          setUserId(result.data._id);
-                         console.log(result);
-                        // setPageTab("home");
+                        setPageTab("home");
                          
                      }
                      else {
@@ -43,7 +41,7 @@ function LognInPage({ setPageTab, setUserId }) {
              // 🏷️ end
              // ---------------------------------------------------------------------
              // Actually this user id will be coming from back-end
-             console.log("outside");
+             
  
          
      }
@@ -70,7 +68,7 @@ function LognInPage({ setPageTab, setUserId }) {
               </div>
               <div className="passwd">Forgot Password</div>
               <br />
-              <button onClick={(handleSubmit)}>sign in </button>
+              <div id='sub' onClick={(handleSubmit)}>Submit</div>
               <br />
               <div className="split-line">
                 <hr style={{ margin: 30 }} />
@@ -134,8 +132,8 @@ function SignUpPage({ setPageTab, setUserId }) {
   <div className="login-popup">
     <div className="login-inner">
      
-        <h2 style={{ textShadow: "5px 5px 3px rgb(51, 44, 44)" }}>SIGNUP</h2>
-        <h4>To create your profile</h4>
+        <h2 id='he' style={{ textShadow: "5px 5px 3px rgb(51, 44, 44)" }}>SIGNUP</h2>
+        <h5 id='head'>To create your profile</h5>
         <div className="user">
           <div className="email-wrap">
             <input className="btn1" type="text" placeholder="Username"  value={username} onChange={(e) => setUsername(e.target.value)}/>

@@ -31,6 +31,12 @@
   align-content: center;
   
 }
+#he{
+    margin-left: 20px;
+}
+#head{
+    margin-left: 25px;
+}
 .email-wrap
 {
 
@@ -59,7 +65,7 @@ width: 100%;
 .submit
 {
 width: 160px;
-height: 33px; 
+height: 40px; 
 border-radius: 30px;
 background:white ;
 border: 3px solid white;
@@ -68,8 +74,9 @@ color:  #dc4348;
 border-left: 10px;
 font-size: 19px;
 padding: 3px;
-margin-left:20 px;
+margin-left: 16px;
 margin-top: 10px;
+font-weight: 900;
 }
 .social-login-wrapper{
 margin: 15px;

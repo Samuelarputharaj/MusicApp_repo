@@ -1,30 +1,54 @@
-import './HomePage.css'
-function HomePage({setPageTab}) {
-    
+import { useState } from 'react';
+import './HomePage.css';
+
+function HomePage() {
+    // State for the playlist
+    const [playlist, setPlaylist] = useState([
+      { id: 1, title: 'Song 1', src: 'song1.mp3', artist: 'Artist 1' },
+      { id: 2, title: 'Song 2', src: 'song2.mp3', artist: 'Artist 2' },
+      { id: 3, title: 'Song 3', src: 'song3.mp3', artist: 'Artist 3' },
+      // Add more songs as needed
+    ]);
+  
+    const [audioSrc, setAudioSrc] = useState('');
+  
+    // Function to add a new song to the playlist
+    const addSongToPlaylist = () => {
+      const newSong = { id: playlist.length + 1, title: 'New Song', src: 'newSong.mp3', artist: 'New Artist' };
+      setPlaylist([...playlist, newSong]);
+    };
+  
+    const playSong = (src) => {
+      setAudioSrc(src);
+    };
+  
+
 return(
 <>
 
   <div className="big-container">
-    <div className="song-box1">
-      <div className="card-1" />
+    {playlist.map((song)=>(
+    <div className={`song-box1${song.id}`} key={song.id}>
+      <div className={`card-1${song.id}`} />
       <div className="cont">
-        <div className="song">Ayayayo Anandhame-MassTamilan.com</div>
+        < div className="song" onClick={() => playSong(song.src)} >Song 1</div>
         <marquee>
-          <div className="art">Haricharan-MassTamilan.com</div>
+          <div className="art">Artist 1</div>
         </marquee>
       </div>
     </div>
-    <div className="song-box2">
-      <div className="card-2" />
+    ))}
+    {/* <div className={`song-box2${song.id}`} key={song.id}>
+      <div className={`card-2${song.id}`} />
       <div className="cont">
         <div className="song">Chand Sifarish-MassTamilan.com</div>
         <marquee>
-          <div className="art">Jatlin-Lalit,Prasoon Joshi-MassTamilan.com</div>
+          <div className="art">Jatlin-Lalit,-MassTamilan.com</div>
         </marquee>
       </div>
     </div>
-    <div className="song-box3">
-      <div className="card-3" />
+    <div className={`song-box3${song.id}`} key={song.id}>
+      <div className={`card-3${song.id}`} />
       <div className="cont">
         <div className="song">Damaku damaku-MassTamilan.com</div>
         <marquee>
@@ -32,8 +56,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box4">
-      <div className="card-4" />
+    <div className={`song-box4${song.id}`} key={song.id}>
+      <div className={`card-4${song.id}`} />
       <div className="cont">
         <div className="song">Dora Dora-MassTamilan.com</div>
         <marquee>
@@ -41,8 +65,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box5">
-      <div className="card-5" />
+    <div className={`song-box5${song.id}`} key={song.id}>
+      <div className={`card-5${song.id}`} />
       <div className="cont">
         <div className="song">Idhu dhan-MassTamilan.com</div>
         <marquee>
@@ -50,8 +74,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box6">
-      <div className="card-6" />
+    <div className={`song-box6${song.id}`} key={song.id}>
+      <div className={`card-6${song.id}`} />
       <div className="cont">
         <div className="song">Lajjavathiye-MassTamilan.com</div>
         <marquee>
@@ -59,8 +83,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box7">
-      <div className="card-7" />
+    <div className={`song-box7${song.id}`} key={song.id}>
+      <div className={`card-7${song.id}`} />
       <div className="cont">
         <div className="song">Manike Hindi-MassTamilan.com</div>
         <marquee>
@@ -70,8 +94,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box8">
-      <div className="card-8" />
+    <div className={`song-box8${song.id}`} key={song.id}>
+      <div className={`card-8${song.id}`} />
       <div className="cont">
         <div className="song">Mannipaya-MassTamilan.com</div>
         <marquee>
@@ -81,8 +105,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box9">
-      <div className="card-9" />
+    <div className={`song-box9${song.id}`} key={song.id}>
+      <div className={`card-9${song.id}`} />
       <div className="cont">
         <div className="song">Mannipaya-MassTamilan.com</div>
         <marquee>
@@ -92,8 +116,19 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box10">
-      <div className="card-10" />
+    <div className={`song-box1${song.id}`} key={song.id}>
+       <div className={`card-10${song.id}`} />
+       <div className="cont">
+        <div className="song">Mannipaya-MassTamilan.com</div>
+        <marquee>
+          <div className="art">
+            A.R.Rahman &amp; Shreya Gosal-MassTamilan.com
+          </div>
+        </marquee>
+      </div>
+    </div>
+    <div className={`song-box1${song.id}`} key={song.id}>
+      <div className={`card-11${song.id}`} />
       <div className="cont">
         <div className="song">Mannipaya-MassTamilan.com</div>
         <marquee>
@@ -103,8 +138,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box11">
-      <div className="card-11" />
+    <div className={`song-box1${song.id}`} key={song.id}>
+      <div className={`card-12${song.id}`} />
       <div className="cont">
         <div className="song">Mannipaya-MassTamilan.com</div>
         <marquee>
@@ -114,19 +149,8 @@ return(
         </marquee>
       </div>
     </div>
-    <div className="song-box12">
-      <div className="card-12" />
-      <div className="cont">
-        <div className="song">Mannipaya-MassTamilan.com</div>
-        <marquee>
-          <div className="art">
-            A.R.Rahman &amp; Shreya Gosal-MassTamilan.com
-          </div>
-        </marquee>
-      </div>
-    </div>
-    <div className="song-box13">
-      <div className="card-13" />
+    <div className={`song-box1${song.id}`} key={song.id}>
+      <div className={`card-13${song.id}`} />
       <div className="cont">
         <div className="song">Mannipaya-MassTamilan.com</div>
         <marquee>
@@ -140,14 +164,16 @@ return(
       <div className="card" />
       <div className="cont-1">
         <div className="song-1">
-          <a href="./styles/playlist.html">Tum Hi Ho-MassTamilan.com</a>
+          <a href="./styles/playlist.html">Tum Hi-MassTamilan.com</a>
         </div>
         <marquee>
-          <div className="singer">Mithoon,Arijith Singh-MassTamilan.com</div>
+          <div className="singer">Mithoon,Arijith-MassTamilan.com</div>
         </marquee>
       </div>
     </div>
+     */}
   </div>
+  <audio src={audioSrc} controls autoPlay />
   <header>
     <div className="circ">
       <i className="fa-solid fa-s fa-3x" />
@@ -169,8 +195,8 @@ return(
     <div className="premium">
       <i className="fa-brands fa-spotify fa-2x" />
     </div>
+    <button onClick={addSongToPlaylist}>Add Song</button>
   </footer>
-  <button onClick={()=>setPageTab("sign-in")}>LoginPage</button>  
 </>
 )
 }
